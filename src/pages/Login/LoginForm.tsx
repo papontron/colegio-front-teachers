@@ -91,9 +91,10 @@ export default function LoginForm() {
     event.preventDefault();
     const username = document.querySelector<HTMLInputElement>('#username')!.value;
     const password = document.querySelector<HTMLInputElement>('#password')!.value;
-
+    const url = API_URL + API_END_POINTS.loginProfesor;
+    console.log({ url });
     try {
-      const response = await axios.post<AxiosResponseSchema<{ profesor: Profesor; token: string }>>(API_URL + API_END_POINTS.loginProfesor, {
+      const response = await axios.post<AxiosResponseSchema<{ profesor: Profesor; token: string }>>(url, {
         year,
         nivel,
         username,
