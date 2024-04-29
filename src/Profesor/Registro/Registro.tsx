@@ -129,7 +129,7 @@ export default function Registro() {
             )}
           </Container>
           {currentPeriodo && (
-            <Container $bgColor={theme.colors.gray.light} $width="100%" $padding="2rem 1rem">
+            <Container $bgColor={theme.colors.gray.light} $width="100%" $padding="1rem">
               <Text $primary $large $fontWeight="700">
                 {convertPeriodoKeyToLabel(currentPeriodo as Periodo)}
               </Text>
