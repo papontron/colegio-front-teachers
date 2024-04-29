@@ -34,11 +34,11 @@ export default function RegistroTableBody({
               })}
 
               <Table.Body.Item>
-                <DisplayAsistenciasTardanzas alumnoId={record.alumnoId} name="tardanzas" periodo={periodo} record={record.tardanzas} />
+                <DisplayAsistenciasTardanzas periodo={periodo} record={record.tardanzas} />
               </Table.Body.Item>
 
               <Table.Body.Item>
-                <DisplayAsistenciasTardanzas alumnoId={record.alumnoId} name="inasistencias" periodo={periodo} record={record.inasistencias} />
+                <DisplayAsistenciasTardanzas periodo={periodo} record={record.inasistencias} />
               </Table.Body.Item>
 
               <Table.Body.Item classN="border-right">
