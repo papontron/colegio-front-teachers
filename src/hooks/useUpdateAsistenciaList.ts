@@ -26,7 +26,7 @@ export default function useUpdateAsistenciaList({
 }) {
   const { mutate, isPending, error } = useMutation({
     mutationKey: ['asistencia', grado, seccion],
-    mutationFn: () => updateAsistenciaList({ registroAsistencia, month, dayId, periodo }),
+    mutationFn: () => updateAsistenciaList({ registroAsistencia, dayId, periodo }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['asistencia', grado, seccion] });
       queryClient.prefetchQuery({ queryKey: ['asistencia', grado, seccion], queryFn: () => fetchAsistenciaList({ grado, seccion, month, day }) });

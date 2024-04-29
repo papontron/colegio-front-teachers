@@ -2,7 +2,6 @@ import { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } 
 import { nivelState } from '../zustand/nivel';
 import { yearState } from '../zustand/year';
 import { tokenState } from '../zustand/token';
-// import { StatusCodesMessages } from './httpStatusCodesErrors';
 type ResponseOk<T> = {
   ok: true;
   payload: T;
@@ -26,7 +25,6 @@ function onRequest(config: InternalAxiosRequestConfig): InternalAxiosRequestConf
 }
 
 function onRequestError(requestError: AxiosError): Promise<AxiosError> {
-  console.log({ requestError });
   return Promise.reject(requestError);
 }
 
@@ -34,12 +32,7 @@ function onResponse(response: AxiosResponse): AxiosResponse {
   return response;
 }
 function onResponseError(responseError: AxiosError<{ ok: false; message: string }>): Promise<AxiosError> {
-  console.log({ responseError });
-  console.log({ serverMessage: responseError.response?.data.message });
-  if (responseError.response!.status >= 400) {
-    throw new Error(responseError.response?.data.message);
-  }
-  return Promise.reject(responseError);
+  throw new Error(responseError.response?.data.message);
 }
 export default function setupAxiosInterceptorsTo(axiosInstance: AxiosInstance) {
   axiosInstance.interceptors.request.use(onRequest, onRequestError);

@@ -21,6 +21,8 @@ import toaster from 'react-hot-toast';
 import { generateGrados, generateSecciones } from '../../utils/profesor';
 import { updateToken } from '../../utils/axiosUtils';
 import useCurrentPeriodo from '../../hooks/useCurrentPeriodo';
+import { Text } from '../../components/Shared/Text/Text';
+import { convertPeriodoKeyToLabel } from '../../utils/periodo';
 export const RegistroContext = createContext<{
   dispatch: (action: RegistroReducerAction) => void;
   setConclusionesDescriptivasModalData: Dispatch<
@@ -72,7 +74,7 @@ export default function Registro() {
   });
   const [registro, dispatchRegistro] = useImmerReducer<RegistroReducerState, RegistroReducerAction>(RegistroReducer, []);
   const [showModal, setShowModal] = useState(false);
-  console.log({ registro });
+
   const [conclusionesDescriptivasModalData, setConclusionesDescriptivasModalData] = useState<{
     alumnoId: string;
     periodo: Periodo;
@@ -126,7 +128,13 @@ export default function Registro() {
               </Button>
             )}
           </Container>
-
+          {currentPeriodo && (
+            <Container $bgColor={theme.colors.gray.light} $width="100%" $padding="2rem 1rem">
+              <Text $primary $large $fontWeight="700">
+                {convertPeriodoKeyToLabel(currentPeriodo as Periodo)}
+              </Text>
+            </Container>
+          )}
           {currentPeriodo && data && registro && (
             <RegistroTable periodo={currentPeriodo as Periodo} registro={{ isTutor: isTutor!, notas: registro as any }}></RegistroTable>
           )}

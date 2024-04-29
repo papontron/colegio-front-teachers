@@ -4,4 +4,5 @@ export const API_END_POINTS = {
   fetchAsistenciaList: '/alumno/fetch-asistencia-list',
   updateAsistenciaList: '/alumno/update-asistencia-list',
   fetchCurrentPeriodo: '/calendario/fetch-current-periodo',
+  changeProfesorPassword: '/empleado/change-profesor-password',
 };

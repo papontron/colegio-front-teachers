@@ -39,11 +39,7 @@ export const Text = styled.p<{
       return theme.fontSizes.text.normal;
     }
   }};
-  ${({ $color }) =>
-    $color &&
-    css`
-      color: ${$color};
-    `}
+
   color: ${(props) => {
     if (props.$danger) {
       return props.theme.colors.red.normal;
@@ -56,4 +52,9 @@ export const Text = styled.p<{
     //   return props.theme.colors.gray.normal;
     // }
   }};
+  ${({ $color }) =>
+    $color &&
+    css`
+      color: ${$color};
+    `}
 `;

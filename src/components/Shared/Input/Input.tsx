@@ -1,20 +1,21 @@
-import styled, { css } from "styled-components";
-import { Container } from "../Container/Container";
-import { Icon } from "../Icon/Icon";
-import { RefObject, forwardRef, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { InputProps } from "./types";
+import styled, { css } from 'styled-components';
+import { Container } from '../Container/Container';
+import { Icon } from '../Icon/Icon';
+import { RefObject, forwardRef, useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { InputProps } from './types';
 
 export const InputContainer = styled.div<{
   $vertical?: boolean;
   $width: string;
+  $isError?: boolean;
 }>`
   display: flex;
   width: ${({ $width }) => $width};
   .input-icon {
     background-color: white;
     height: 30px;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.gray.dark};
+    border-bottom: ${({ $isError, theme }) => ($isError ? '2px solid red' : `2px solid ${theme.colors.gray.dark}`)};
     padding-top: 5px;
     padding-inline: 4px;
   }
@@ -24,7 +25,7 @@ export const InputContainer = styled.div<{
     font-size: ${({ theme }) => theme.fontSizes.text.normal};
     outline: none;
     border: none;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.gray.dark};
+    border-bottom: ${({ $isError, theme }) => ($isError ? '2px solid red' : `2px solid ${theme.colors.gray.dark}`)};
   }
   label {
     color: white;
@@ -57,12 +58,12 @@ export const InputContainer = styled.div<{
 `;
 
 const Input = forwardRef(function (Props: InputProps, ref) {
-  const { name, label, vertical, type, width, icon, ...rest } = Props;
+  const { isError, name, label, vertical, type, width, icon, ...rest } = Props;
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <InputContainer $vertical={vertical} $width={width}>
+    <InputContainer $vertical={vertical} $width={width} $isError={isError}>
       <label htmlFor={name}>{label}</label>
-      <Container $gap="0" $direction={"row"} $center $width="100%">
+      <Container $gap="0" $direction={'row'} $width="100%">
         {icon != undefined && (
           <Icon className="input-icon" $small $width="20px">
             {icon}
@@ -71,21 +72,12 @@ const Input = forwardRef(function (Props: InputProps, ref) {
         <input
           {...rest}
           ref={ref as RefObject<HTMLInputElement>}
-          type={
-            type === "password" ? (showPassword ? "text" : "password") : type
-          }
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
           name={name}
           id={name}
         />
-        {type === "password" && (
-          <Icon
-            $pointer
-            $primary
-            $small
-            $width="20px"
-            className="input-icon"
-            onClick={() => setShowPassword((old) => !old)}
-          >
+        {type === 'password' && (
+          <Icon $pointer $primary $small $width="20px" className="input-icon" onClick={() => setShowPassword((old) => !old)}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </Icon>
         )}

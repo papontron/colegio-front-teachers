@@ -4,6 +4,8 @@ import { BiCog, BiLogOut, BiMenu } from 'react-icons/bi';
 import { useProfesor } from '../../hooks/useProfesor';
 import { Icon } from '../../components/Shared/Icon/Icon';
 import { HandleLogOut } from '../../utils/axiosUtils';
+import { useState } from 'react';
+import DropDownMenu from './DropDownMenu';
 
 const HeaderContainer = styled.div`
   grid-column: 1 / 2;
@@ -12,7 +14,7 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  user-select: none;
   .content {
     display: flex;
     gap: 0.2rem;
@@ -23,6 +25,9 @@ const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+  .cog-container {
+    position: relative;
   }
   @media (width>${screenBreakingPoint}) {
     grid-column: 2 / 3;
@@ -40,6 +45,7 @@ const HeaderContainer = styled.div`
 
 export default function Header() {
   const profesor = useProfesor((state) => state.profesor);
+  const [showDropDown, setShowDropDown] = useState(false);
   return (
     <HeaderContainer>
       <div className="left-side">
@@ -57,9 +63,12 @@ export default function Header() {
         {profesor?.apellidos + ' ' + profesor?.nombres}
       </div>
       <div className="content">
-        <Icon $width="40px" $borderRadius="50%" $small $pointer $bgColor={theme.colors.gray.light}>
-          <BiCog />
-        </Icon>
+        <div className="cog-container">
+          <Icon $width="40px" $borderRadius="50%" $small $pointer $bgColor={theme.colors.gray.light} onClick={() => setShowDropDown((old) => !old)}>
+            <BiCog />
+          </Icon>
+          {showDropDown && <DropDownMenu handler={() => setShowDropDown(false)}></DropDownMenu>}
+        </div>
         <Icon $width="40px" $borderRadius="50%" $small $bgColor={theme.colors.gray.light} $pointer $danger onClick={() => HandleLogOut()}>
           <BiLogOut />
         </Icon>

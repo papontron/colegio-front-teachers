@@ -20,6 +20,7 @@ export default function useFetchAsistenciaList({
     queryKey: ['asistencia', grado, seccion],
     queryFn: () => fetchAsistenciaList({ grado, seccion, month, day }),
     refetchOnWindowFocus: false,
+    retry: false,
     enabled: grado !== null && seccion !== null,
   });
 
