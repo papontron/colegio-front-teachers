@@ -15,6 +15,8 @@ import { yearState } from '../../config/zustand/year';
 import { tokenState } from '../../config/zustand/token';
 import ErrorHandler from '../../utils/errorManagment';
 import { Container } from '../../components/Shared/Container/Container';
+import { API_END_POINTS } from '../../config/axios/endPoints';
+import { API_URL } from '../../var/envData';
 
 const LoginFormContainer = styled.div`
   grid-column: 2 / -2;
@@ -91,7 +93,7 @@ export default function LoginForm() {
     const password = document.querySelector<HTMLInputElement>('#password')!.value;
 
     try {
-      const response = await axios.post<AxiosResponseSchema<{ profesor: Profesor; token: string }>>('http://localhost:4000/user/login-profesor', {
+      const response = await axios.post<AxiosResponseSchema<{ profesor: Profesor; token: string }>>(API_URL + API_END_POINTS.loginProfesor, {
         year,
         nivel,
         username,
