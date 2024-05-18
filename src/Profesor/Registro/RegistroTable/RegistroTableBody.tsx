@@ -19,10 +19,10 @@ export default function RegistroTableBody({
   if (registro.isTutor) {
     return (
       <Table.Body>
-        {registro.notas.map((record) => {
+        {registro.notas.map((record, index) => {
           return (
             <Fragment key={record.alumnoId}>
-              <Table.Body.Item>{record.apellidos + ', ' + record.nombres}</Table.Body.Item>
+              <Table.Body.Item>{'[' + index + 1 + ']' + record.apellidos + ', ' + record.nombres}</Table.Body.Item>
               {cursosList.map((curso) => {
                 return (
                   <Fragment key={curso.code}>
@@ -34,11 +34,11 @@ export default function RegistroTableBody({
               })}
 
               <Table.Body.Item>
-                <DisplayAsistenciasTardanzas periodo={periodo} record={record.tardanzas} />
+                <DisplayAsistenciasTardanzas periodo={periodo} record={record.tardanzas} alumnoId={record.alumnoId} name="tardanzas" />
               </Table.Body.Item>
 
               <Table.Body.Item>
-                <DisplayAsistenciasTardanzas periodo={periodo} record={record.inasistencias} />
+                <DisplayAsistenciasTardanzas periodo={periodo} record={record.inasistencias} name="inasistencias" alumnoId={record.alumnoId} />
               </Table.Body.Item>
 
               <Table.Body.Item classN="border-right">
