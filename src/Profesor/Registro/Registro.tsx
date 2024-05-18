@@ -60,6 +60,7 @@ export default function Registro() {
     refetchOnWindowFocus: false,
     enabled: grado != null && seccion != null,
   });
+  console.log({ grado, seccion });
   const {
     mutate,
     isPending,
@@ -152,6 +153,7 @@ export default function Registro() {
     const salon = profesor!.salones.find((salon) => {
       return salon.value.grado === grado && salon.value.seccion === seccion;
     })!;
+    console.log({ salon });
     const response = await Profesor.fetchRegistroBySalon({ salon });
     if (!response.data.ok) {
       throw new Error(response.data.message);

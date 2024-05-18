@@ -6,6 +6,7 @@ import { ConvertPeriodoToIndex } from './utils';
 import { CursoInfo, RegistroProfesor } from '../../../models/Profesor/types';
 import { Periodo } from '../../../types/gradoSalon';
 import ConclusionesDescriptivasUI from './ConclusionesDescriptivasUI';
+import { Container } from '../../../components/Shared/Container/Container';
 
 export default function RegistroTableBody({
   registro,
@@ -22,7 +23,12 @@ export default function RegistroTableBody({
         {registro.notas.map((record, index) => {
           return (
             <Fragment key={record.alumnoId}>
-              <Table.Body.Item>{'[' + index + 1 + ']' + record.apellidos + ', ' + record.nombres}</Table.Body.Item>
+              <Table.Body.Item>
+                <Container $direction="row" $width="100%" $gap=".5rem" $padding="0 0 0 .5rem">
+                  <div>{`[${index + 1}]`}</div>
+                  <div>{record.apellidos + ', ' + record.nombres}</div>
+                </Container>
+              </Table.Body.Item>
               {cursosList.map((curso) => {
                 return (
                   <Fragment key={curso.code}>
