@@ -53,15 +53,16 @@ const LoginFormContainer = styled.div`
 export default function LoginForm() {
   const profesor = useProfesor((state) => state.profesor);
   const setToken = tokenState((state) => state.setToken);
-  const nivel = nivelState((state) => state.nivel);
   const setNivel = nivelState((state) => state.setNivel);
-  const resetNivel = nivelState((state) => state.resetNivel);
+  //const resetNivel = nivelState((state) => state.resetNivel);
+  const nivel = nivelState((state) => state.nivel);
   const year = yearState((state) => state.year);
   const setProfesor = useProfesor((state) => state.setProfesor);
-
+  console.log({ nivel });
   useCustomEvent('customSelect', listener);
   function listener(event: CustomEvent) {
     const { name, value } = event.detail;
+    console.log({ name, value });
     if (name === 'nivel') {
       setNivel(value);
     }
@@ -93,6 +94,7 @@ export default function LoginForm() {
     const password = document.querySelector<HTMLInputElement>('#password')!.value;
     const url = API_URL + API_END_POINTS.loginProfesor;
     console.log({ url });
+    console.log({ nivel2: nivel });
     try {
       const response = await axios.post<AxiosResponseSchema<{ profesor: Profesor; token: string }>>(url, {
         year,
@@ -105,7 +107,7 @@ export default function LoginForm() {
         setProfesor(response.data.payload.profesor);
         setToken(response.data.payload.token);
       } else {
-        resetNivel();
+        // resetNivel();
         throw new Error(response.data.message);
       }
     } catch (error) {
