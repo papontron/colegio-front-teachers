@@ -65,10 +65,15 @@ export default function RegistroTableBody({
   } else {
     return (
       <Table.Body>
-        {registro.notas.map((record) => {
+        {registro.notas.map((record, index) => {
           return (
             <Fragment key={record.alumnoId}>
-              <Table.Body.Item>{record.apellidos + ', ' + record.nombres}</Table.Body.Item>
+              <Table.Body.Item>
+                <Container $direction="row" $width="100%" $gap=".5rem" $padding="0 0 0 .5rem">
+                  <div>{`[${index + 1}]`}</div>
+                  <div>{record.apellidos + ', ' + record.nombres}</div>
+                </Container>
+              </Table.Body.Item>
               {cursosList.map((curso) => {
                 return (
                   <Fragment key={curso.code}>
