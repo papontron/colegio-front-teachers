@@ -15,11 +15,11 @@ import useCustomEvent from '../../hooks/useCustomEvent';
 import useFetchAsistenciaList from '../../hooks/useFetchAsistenciaList';
 import useUpdateAsistenciaList from '../../hooks/useUpdateAsistenciaList';
 import { Text } from '../../components/Shared/Text/Text';
-import useCurrentPeriodo from '../../hooks/useCurrentPeriodo';
+import useConvertDateToperiodo from '../../hooks/useConvertDateToPeriodo';
 import { Periodo } from '../../types/gradoSalon';
 
 export default function Asistencias() {
-  const { data: currentPeriodo, isLoading } = useCurrentPeriodo();
+  const { data: currentPeriodo, isLoading } = useConvertDateToperiodo();
   const periodo = currentPeriodo || 'primerPeriodo';
   const month = new Date().toLocaleDateString('ES-es', { month: 'long' });
   const day = new Date().getDate();

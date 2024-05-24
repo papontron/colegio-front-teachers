@@ -8,4 +8,8 @@ export default class Calendario {
     const response = await axios.get<AxiosResponseSchema<string>>(API_URL + API_END_POINTS.fetchCurrentPeriodo);
     return response;
   }
+  static async convertDateToPeriodo() {
+    const response = await axios.get<AxiosResponseSchema<string>>(API_URL + API_END_POINTS.convertDateToPeriodo);
+    return response;
+  }
 }

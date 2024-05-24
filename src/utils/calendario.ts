@@ -7,3 +7,10 @@ export async function fetchCurrentPeriodo() {
   if (!response.data.ok) throw new Error(response.data.message);
   return response.data.payload;
 }
+
+export async function convertDateToPeriodo() {
+  const response = await Calendario.convertDateToPeriodo();
+  updateToken(response);
+  if (!response.data.ok) throw new Error(response.data.message);
+  return response.data.payload;
+}

@@ -6,4 +6,5 @@ export const API_END_POINTS = {
   fetchCurrentPeriodo: '/calendario/fetch-current-periodo',
   changeProfesorPassword: '/empleado/change-profesor-password',
   loginProfesor: '/user/login-profesor',
+  convertDateToPeriodo: '/calendario/convert-date-to-periodo',
 };
