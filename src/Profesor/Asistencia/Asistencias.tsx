@@ -33,6 +33,7 @@ export default function Asistencias() {
   const [dayId, setDayId] = useState('');
   const { data, isFetching } = useFetchAsistenciaList({ grado, seccion, month, day });
   const [registroAsistencia, dispatch] = useImmerReducer<AsistenciasReducerState, AsistenciasReducerAction>(AsistenciasReducer, []);
+
   const { mutate, isPending } = useUpdateAsistenciaList({
     registroAsistencia,
     month,
