@@ -65,7 +65,7 @@ export default function AsistenciaAlumnos() {
           <Select options={generateGrados(salonesList!)} width="14rem" name="grado" label="grado" />
           {grado && <Select key={grado} options={generateSecciones(grado, salonesList!)} width="9rem" name="seccion" label="sección" />}
           <Button $width="max-content" $primary onClick={() => refetch()} type="button" disabled={isFetching} $small>
-            Grabar Cambios
+            Ver Lista
           </Button>
         </Container>
         {asistencias && asistencias.length > 0 && (
