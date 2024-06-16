@@ -6,8 +6,8 @@ export const SELECT_NOTAS = [
 ];
 
 export const SELECT_PERIODOS = [
-  { label: 'Primer periodo', value: 'primerPeriodo' },
-  { label: 'Segundo periodo', value: 'segundoPeriodo' },
-  { label: 'tercerPeriodo', value: 'tercerPeriodo' },
-  { label: 'cuartoPeriodo', value: 'cuartoPeriodo' },
+  { label: 'Primer Periodo', value: 'primerPeriodo' },
+  { label: 'Segundo Periodo', value: 'segundoPeriodo' },
+  { label: 'Tercer Periodo', value: 'tercerPeriodo' },
+  { label: 'Cuarto Periodo', value: 'cuartoPeriodo' },
 ];
