@@ -63,5 +63,5 @@ export const StyledTableBodyItem = styled(StyledTableItem)`
   padding: ${({ $padding }) => $padding || '0'};
   border-right: 1px solid black;
   border-bottom: 1px solid black;
-  height: 30px;
+  /* height: 30px; */
 `;

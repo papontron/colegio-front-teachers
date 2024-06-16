@@ -26,7 +26,6 @@ export default function Asistencias() {
   const profesor = useProfesor((state) => state.profesor);
   // const salones = profesor!.salones;
   const { grado, seccion } = useGradoSeccionSearchParams();
-
   const salonesList = profesor?.salones.filter((salon) => {
     return salon.tutor;
   });

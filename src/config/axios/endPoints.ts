@@ -7,4 +7,5 @@ export const API_END_POINTS = {
   changeProfesorPassword: '/empleado/change-profesor-password',
   loginProfesor: '/user/login-profesor',
   convertDateToPeriodo: '/calendario/convert-date-to-periodo',
+  getRecordAsistenciaAlumnos: '/calendario/get-record-asistencias-grado-seccion-periodo',
 };

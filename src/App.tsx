@@ -8,6 +8,7 @@ import Asistencias from './Profesor/Asistencia/Asistencias';
 import CambiarPassword from './Profesor/CambiarPassword/CambiarPassword';
 import MenuIndex from './pages/Menu/MenuIndex';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
+import AsistenciaAlumnos from './Profesor/AsistenciaRecords/AsistenciaAlumnos';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route element={<MenuIndex />} index></Route>
           <Route element={<Registro />} path="registro" />
           <Route element={<Asistencias />} path="asistencias" />
+          <Route element={<AsistenciaAlumnos />} path="lista-asistencia" />
           <Route element={<CambiarPassword />} path="cambiar-password" />
           <Route path="*" element={<DefaultPage />}></Route>
         </Route>

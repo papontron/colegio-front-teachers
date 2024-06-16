@@ -14,7 +14,7 @@ export default function RegistroTable({ registro, periodo }: { periodo: Periodo;
     return <>Lista vacía</>;
   }
   return (
-    <Table $gridTempCols={gridTemplateColumns} $justifyContent="center" $alignItems="center">
+    <Table $gridTempCols={gridTemplateColumns} $justifyContent="center" $alignItems="center" $height="30px">
       <RegistroTableHeader cursosList={cursosList} isTutor={registro.isTutor} />
       <RegistroTableBody periodo={periodo} registro={registro} cursosList={cursosList} />
     </Table>

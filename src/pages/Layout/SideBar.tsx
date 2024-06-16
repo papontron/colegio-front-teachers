@@ -9,7 +9,8 @@ import { Icon } from '../../components/Shared/Icon/Icon';
 
 const SideBarItems: MItem[] = [
   { label: 'Registro', url: 'registro', icon: <BiSpreadsheet /> },
-  { label: 'Asistencias', url: 'asistencias', icon: <BiCalendarCheck /> },
+  { label: 'Pasar Asistencias', url: 'asistencias', icon: <BiCalendarCheck /> },
+  { label: 'Ver Asistencias', url: 'lista-asistencia', icon: <BiCalendarCheck></BiCalendarCheck> },
   { label: 'Asignaciones', url: '', icon: <BiFoodMenu /> },
 ];
 
