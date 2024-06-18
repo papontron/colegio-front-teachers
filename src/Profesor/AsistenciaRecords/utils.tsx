@@ -1,4 +1,5 @@
 import { AsistenciaRecord } from './types';
+export const alumnoNameWidthCell = 33;
 export const dayCellWidth = 2;
 export const VALID_MONTHS = [
   'enero',
@@ -40,7 +41,7 @@ export function getMonthsFromAsistenciaRecord(records: AsistenciaRecord[]) {
 }
 
 function getGridTemplateColsForAsistenciaTable({ months, daysByMonth }: { months: MONTH_NAME[]; daysByMonth: { [key: string]: number[] } }) {
-  let gridTemplateCols: string = '30rem';
+  let gridTemplateCols: string = `${alumnoNameWidthCell}rem`;
   const minLength = 12;
   months.forEach((month) => {
     const length = daysByMonth[month].length;

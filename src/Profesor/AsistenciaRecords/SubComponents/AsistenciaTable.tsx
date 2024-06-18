@@ -2,7 +2,7 @@ import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../../components/Shared/Container/Container';
 import Table from '../../../components/Shared/Table/Table';
 import { AsistenciasList } from '../types';
-import { getMonthsFromAsistenciaRecord } from '../utils';
+import { alumnoNameWidthCell, getMonthsFromAsistenciaRecord } from '../utils';
 import MonthBody from './MonthBody';
 import MonthHeader from './MonthHeader';
 
@@ -30,7 +30,7 @@ export default function AsistenciaTable({ asistencias }: { asistencias: Asistenc
           return (
             <Fragment key={index}>
               <Table.Body.Item>
-                <Container $direction="row" $width="30rem">
+                <Container $direction="row" $width={`${alumnoNameWidthCell}rem`}>
                   <Container $width="2.5rem">{`[${index + 1}]`}</Container>
                   <Container $width="100%">{element.nombreCompleto}</Container>
                 </Container>
