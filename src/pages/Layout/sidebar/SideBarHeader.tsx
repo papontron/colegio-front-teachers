@@ -1,13 +1,14 @@
-import styled from "styled-components";
-import logo from "/logo.png";
-import { COLEGIO_NAME } from "../../../var/colegioData";
+import styled from 'styled-components';
+import logo from '/logo.png';
+import { COLEGIO_NAME } from '../../../var/colegioData';
+import { useNavigate } from 'react-router-dom';
 const StyledSideBarHeader = styled.header`
   margin: 2rem 0 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
+  cursor: pointer;
   .nombre-colegio {
     font-size: ${({ theme }) => theme.fontSizes.headers.small};
     text-align: center;
@@ -29,8 +30,9 @@ const StyledSideBarHeader = styled.header`
 `;
 
 export default function SideBarHeader() {
+  const navigate = useNavigate();
   return (
-    <StyledSideBarHeader>
+    <StyledSideBarHeader onClick={() => navigate('/menu')}>
       <span className="image">
         <img src={logo} alt="colegio-logo"></img>
       </span>
