@@ -5,7 +5,7 @@ import AsistenciaPicker from './AsistenciaPicker';
 
 export default function AsistenciasTable({ alumnos }: { alumnos: AsistenciasReducerState }) {
   return (
-    <Table $gridTempCols="45px 300px 45px" $justifyContent="center" $alignItems="center" $headerPadding="5px" $height="30px">
+    <Table $gridTempCols="45px 360px 45px" $justifyContent="center" $alignItems="center" $headerPadding="5px" $height="30px">
       <Table.Header>
         <Table.Header.Item>N°</Table.Header.Item>
         <Table.Header.Item>Alumno</Table.Header.Item>
