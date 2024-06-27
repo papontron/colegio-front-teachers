@@ -1,5 +1,5 @@
 import { AsistenciaRecord, AsistenciaValue } from './types';
-export const alumnoNameWidthCell = 33;
+export const alumnoNameWidthCell = 36;
 export const dayCellWidth = 2;
 export const VALID_MONTHS = [
   'enero',
