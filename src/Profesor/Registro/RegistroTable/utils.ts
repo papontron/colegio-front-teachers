@@ -1,6 +1,5 @@
 import { CursoInfo, RegistroNoTutor, RegistroTutor } from '../../../models/Profesor/types';
 import { Nivel, Periodo } from '../../../types/gradoSalon';
-import { alumnoNameWidthCell } from '../../AsistenciaRecords/utils';
 import { COMPETENCIA_WIDTH, CURSOS_MAP_BY_NIVEL } from './var';
 
 export default function GetTableDataFromRegistro(registro: RegistroNoTutor | RegistroTutor, nivel: Nivel) {
@@ -17,7 +16,7 @@ export default function GetTableDataFromRegistro(registro: RegistroNoTutor | Reg
   // headersLabels = ['Alumno', ...headersLabels];
   let gridTemplateColumns: string = Object.keys(registro.notas[0].cursos).reduce((acc, header) => {
     return (acc = acc + `${CURSOS_MAP_BY_NIVEL[nivel][header].numCompetencias * COMPETENCIA_WIDTH}px `);
-  }, `${alumnoNameWidthCell}rem`);
+  }, `360px `);
   if (registro.isTutor) {
     gridTemplateColumns = gridTemplateColumns + `80px 80px ${COMPETENCIA_WIDTH}px`;
   }
