@@ -6,6 +6,7 @@ export type AsistenciaRecord = {
   month: MONTH_NAME;
   asistencia: AsistenciaValue;
   dayId: string;
+  justificado?: undefined | true;
 };
 export type AsistenciasList = {
   nombreCompleto: string;
